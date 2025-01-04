@@ -15,7 +15,7 @@ class MemberRepositoryTest {
     @Test
     @Transactional
     @Rollback(false)
-    public void testMember() throws Exception{
+    void testMember() throws Exception{
         //given
         Member member = new Member();
         member.setUsername("memberA");
