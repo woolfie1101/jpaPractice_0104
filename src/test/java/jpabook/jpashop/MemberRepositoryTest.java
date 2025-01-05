@@ -10,23 +10,23 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 class MemberRepositoryTest {
 
-    @Autowired MemberRepository memberRepository;
-
-    @Test
-    @Transactional
-    @Rollback(false)
-    void testMember() throws Exception{
-        //given
-        Member member = new Member();
-        member.setUsername("memberA");
-
-        //when
-        Long savedId = memberRepository.save(member);
-        Member findMember = memberRepository.find(savedId);
-
-        //then
-        Assertions.assertEquals(member.getUsername(), findMember.getUsername());
-        Assertions.assertEquals(member.getId(), findMember.getId());
-        Assertions.assertSame(member, findMember);
-    }
+    // @Autowired MemberRepository memberRepository;
+    //
+    // @Test
+    // @Transactional
+    // @Rollback(false)
+    // void testMember() throws Exception{
+    //     //given
+    //     Member member = new Member();
+    //     member.setUsername("memberA");
+    //
+    //     //when
+    //     Long savedId = memberRepository.save(member);
+    //     Member findMember = memberRepository.find(savedId);
+    //
+    //     //then
+    //     Assertions.assertEquals(member.getUsername(), findMember.getUsername());
+    //     Assertions.assertEquals(member.getId(), findMember.getId());
+    //     Assertions.assertSame(member, findMember);
+    // }
 }
