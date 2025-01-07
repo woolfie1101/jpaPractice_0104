@@ -1,6 +1,7 @@
 package jpabook.jpashop.domain;
 
 import static jakarta.persistence.FetchType.*;
+import static lombok.AccessLevel.*;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,11 +10,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor(access = PROTECTED) //new OrderItem()으로 생성하는 것을 막기 위해, 생성메서드를 쓰도록
 public class OrderItem {
 
     @Id @GeneratedValue

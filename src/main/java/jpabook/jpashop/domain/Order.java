@@ -1,6 +1,7 @@
 package jpabook.jpashop.domain;
 
 import static jakarta.persistence.FetchType.*;
+import static lombok.AccessLevel.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -20,13 +21,16 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "orders")
 @Getter
 @Setter
+@NoArgsConstructor(access = PROTECTED)
 public class Order {
 
     @Id
@@ -80,7 +84,7 @@ public class Order {
         return order;
     }
 
-    //==비즈니스 로직==//
+    //==비즈니스 로직==// >> 도메인 모델 패턴(엔티티가 비즈니스 로직을 가지고 있음)(서비스 계층은 단순히 엔티티에 필요한 요청을 위임)
     /**
      * 주문 취소
      */
